@@ -1,10 +1,25 @@
-export const metadata = {
+import { Metadata } from "next";
+import Link from "next/link";
+import { API_URL } from "../../common";
+
+export const metadata: Metadata = {
   title: "Home",
 };
-export default function Tomato() {
+
+async function getMovies() {
+  const response = await fetch(API_URL);
+  return response.json();
+}
+
+export default async function HomePage() {
+  const movies = await getMovies();
   return (
     <div>
-      <h1>Hello!</h1>
+      {movies.map((movie) => (
+        <li key={movie.id}>
+          <Link href={`/movies/${movie.id}`}>{movie.title}</Link>
+        </li>
+      ))}
     </div>
   );
 }

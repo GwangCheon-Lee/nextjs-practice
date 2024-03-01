@@ -1,4 +1,9 @@
- export default  function NotFound() {
-    return <h1>404 Not found</h1>;
+import Navigation from "../components/navigation";
+
+export default function NotFound() {
+    return <div>
+        <Navigation/>
+        <h1>404 Not found</h1>
+    </div>
 }
 

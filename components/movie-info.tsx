@@ -1,9 +1,8 @@
-import { API_URL } from "../common";
-
 async function getMovie(id: string) {
   await new Promise((resolve) => setTimeout(resolve, 1000));
-  const response = await fetch(`${API_URL}/${id}`);
-  return response.json();
+  throw new Error("something broke...");
+  // const response = await fetch(`${API_URL}/${id}`);
+  // return response.json();
 }
 
 export default async function MovieInfo({ id }: { id: string }) {
